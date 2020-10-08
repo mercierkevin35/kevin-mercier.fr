@@ -1,0 +1,7 @@
+.l-item{
+    opacity: 0;
+}
+.l-visible{
+    opacity: initial;
+    transition: opacity 1s;
+}

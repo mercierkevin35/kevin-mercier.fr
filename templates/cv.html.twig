@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+Je suis un super titre de batard
+{% endblock %}
+
+{% block stylesheets %}
+{{ encore_entry_link_tags('cv') }}
+{% endblock %}
+
+{% block body %}
+<div id="container">
+    <section id="presentation">
+        <h2>Kévin Mercier</h2>
+        <address>
+            1, rue Jean-Marie Ecorchard<br>
+            Appartement B12<br>
+            35 131 Chartres-de-Bretagne
+        </address>
+    </section>
+    <h1></h1>
+    <section id="competence"></section>
+    <section id="experience"></section>
+    <section id="formation"></section>
+    <section id="hobbies"></section>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+{{ encore_entry_script_tags('cv') }}
+{% endblock %}
