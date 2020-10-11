@@ -4,22 +4,22 @@ namespace App\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 class HomeController extends AbstractController{
-
     /**
      * @Route("/", name="home")
      */
     public function index(Request $request){
-
         return $this->redirectToRoute('cv', $request->query->all());
     }
+
     /**
-     * @Route("/cv", name="cv")
+     * @Route("/test")
      */
-    public function cv(){
-        return $this->render("cv.html.twig");
-    }
+
+     public function test(){
+         return $this->render('test.html.twig');
+     }
+
 }

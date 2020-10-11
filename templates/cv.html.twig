@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-Je suis un super titre de batard
+{{ cv.title }}
 {% endblock %}
 
 {% block stylesheets %}
@@ -9,20 +9,78 @@ Je suis un super titre de batard
 {% endblock %}
 
 {% block body %}
-<div id="container">
-    <section id="presentation">
-        <h2>Kévin Mercier</h2>
-        <address>
-            1, rue Jean-Marie Ecorchard<br>
-            Appartement B12<br>
-            35 131 Chartres-de-Bretagne
-        </address>
-    </section>
-    <h1></h1>
-    <section id="competence"></section>
-    <section id="experience"></section>
-    <section id="formation"></section>
-    <section id="hobbies"></section>
+<div class="container cv-container">
+    <div class="row">
+        <aside id="presentation" class="col-md-4">
+            <h2>{{ cv.firstName }} {{ cv.lastName }}</h2>
+            <address>
+                {{ cv.address|nl2br }}
+            </address>
+            <div class="tel">
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-telephone-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M2.267.98a1.636 1.636 0 0 1 2.448.152l1.681 2.162c.309.396.418.913.296 1.4l-.513 2.053a.636.636 0 0 0 .167.604L8.65 9.654a.636.636 0 0 0 .604.167l2.052-.513a1.636 1.636 0 0 1 1.401.296l2.162 1.681c.777.604.849 1.753.153 2.448l-.97.97c-.693.693-1.73.998-2.697.658a17.47 17.47 0 0 1-6.571-4.144A17.47 17.47 0 0 1 .639 4.646c-.34-.967-.035-2.004.658-2.698l.97-.969z"/>
+                </svg>
+                {{ cv.phone }}
+            </div>
+            <a class="email btn btn-outline-primary" id="btn-email" href="{{ path('contact') }}">
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-inbox-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M4.98 4a.5.5 0 0 0-.39.188L1.54 8H6a.5.5 0 0 1 .5.5 1.5 1.5 0 1 0 3 0A.5.5 0 0 1 10 8h4.46l-3.05-3.812A.5.5 0 0 0 11.02 4H4.98zm-1.17-.437A1.5 1.5 0 0 1 4.98 3h6.04a1.5 1.5 0 0 1 1.17.563l3.7 4.625a.5.5 0 0 1 .106.374l-.39 3.124A1.5 1.5 0 0 1 14.117 13H1.883a1.5 1.5 0 0 1-1.489-1.314l-.39-3.124a.5.5 0 0 1 .106-.374l3.7-4.625z"/>
+                </svg>
+                M'envoyer un email
+            </a>
+
+        </aside>
+        <div id="content" class="col-md-8">
+            <div class="title-container text-center">
+                <h1 class="main-title">{{ cv.title }}</h1>
+                {% if cv.subtitle is defined and cv.subtitle is not empty %}
+                    <h2 class="subtitle">{{ cv.subtitle }}</h2>
+                {% endif %}
+            </div>
+
+            
+            {% if cv.competences is defined and cv.competences is not empty %}
+            <section id="competences" class="category">
+                <h2 class="cat-title">Compétences</h2>
+                <hr>
+                {% for competence in cv.competences %}
+                    <dt>{{competence.name}}</dt>
+                    <dd>{{competence.desc}}</dd>
+                {% endfor %}
+            </section>
+            {% endif %}
+            {% if cv.experiences is defined and cv.experiences is not empty %}
+            <section id="experiences" class="category">
+                <h2 class="cat-title">Expériences</h2>
+                <hr>
+                {% for experience in cv.experiences %}
+                    <dt>{{experience.name}}</dt>
+                    <dd>{{experience.desc}}</dd>
+                {% endfor %}
+            </section>
+            {% endif %}
+            {% if cv.formations is defined and cv.formations is not empty %}
+            <section id="formations" class="category">
+                <h2 class="cat-title">Formations</h2>
+                <hr>
+                {% for formation in cv.formations %}
+                    <dt>{{formation.name}}</dt>
+                    <dd>{{formation.desc}}</dd>
+                {% endfor %}
+            </section>
+            {% endif %}
+            {% if cv.hobbies is defined and cv.hobbies is not empty %}
+            <section id="hobbies" class="category">
+                <h2 class="cat-title">Centres d'intérêt</h2>
+                <hr>
+                {% for hobby in cv.hobbies %}
+                    <dt>{{hobby.name}}</dt>
+                    <dd>{{hobby.desc}}</dd>
+                {% endfor %}
+            </section>
+            {% endif %}
+        </div>
+    </div>
 </div>
 {% endblock %}
 

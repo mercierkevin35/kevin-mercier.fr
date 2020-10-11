@@ -1,14 +1,28 @@
 @import "~bootstrap/scss/bootstrap";
 
-*{
-    box-sizing: border-box;
+.title-container {
+    
+    @include media-breakpoint-up(md) {
+        margin: 30px auto 100px auto;
+    }
+    margin: 30px auto 50px auto;
 }
 
-body{
-    margin: 0;
-    padding: 0;
+.cv-container {
+
+    @include media-breakpoint-up(md) {
+        border: 1px solid black;
+        border-radius: 3px;
+        box-shadow: 2px 2px 3px;
+    }
+
 }
-img{
-    margin: 0 auto 10px auto;
-    display: block;
+
+.cat-title{
+    margin-top: 50px;
+}
+
+.category dd{
+    font-style: italic;
+    margin-bottom: 20px;
 }

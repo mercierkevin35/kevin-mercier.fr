@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+{% endblock %}
+
+{% block stylesheets %}
+{{ encore_entry_link_tags('app') }}
+<script src="https://www.google.com/recaptcha/api.js"></script>
+{% endblock %}
+
+{% block body %}
+<form id="demo-form">
+<label for="field">
+<input type="text" id="field" name="field" placeholder="champ inutile">
+<button class="g-recaptcha" 
+        data-sitekey="6LeX_NUZAAAAALN58X4beL4D5UMyskzlCMpkDK1p" 
+        data-callback='onSubmit' 
+        data-action='submit'>Submit</button>
+</form>
+{% endblock %}
+
+{% block javascripts %}
+{{ encore_entry_script_tags('app') }}
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+Contact
+{% endblock %}
+
+{% block stylesheets %}
+{{ encore_entry_link_tags('contact') }}
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1 class="text-center">Formulaire de contact</h1>
+    <div id="form-container">
+    {{ form(form) }}
+    </div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+{{ encore_entry_script_tags('contact') }}
+{% endblock %}
