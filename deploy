@@ -1,2 +1,0 @@
-#!/bin/sh
-rsync -av . u88287271@home669284089.1and1-data.host:~/kevin-mercier.fr --include=public/build --include=vendor --include=public/.htaccess --exclude-from=.gitignore --exclude=".*" --delete
