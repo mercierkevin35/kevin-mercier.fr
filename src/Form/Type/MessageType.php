@@ -18,7 +18,7 @@ class MessageType extends AbstractType
         $builder
             ->add("from", EmailType::class, [
                     'label'=> 'Votre Email',
-                    'attr' =>  ['placeholder' => 'Veuillez saisir votre adresse email']
+                    'attr' =>  ['placeholder' => 'Veuillez saisir votre adresse email'],
                 ])
             ->add("subject", TextType::class, [
                     'label'=> 'Objet',
@@ -31,7 +31,15 @@ class MessageType extends AbstractType
                             'rows' => 20
                         ]
                 ])
-            ->add("send", SubmitType::class, ['label' => 'Envoyer']);
+            ->add("send", SubmitType::class, [
+                    'label' => 'Envoyer',
+                    'attr' => [
+                        'class' => 'g-recaptcha btn-primary',
+                        'data-sitekey' => $_ENV["RECAPTCHA_KEY_PUB"],
+                        'data-callback' => 'onSubmit',
+                        'data-action' => 'submit'
+                    ]
+                ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

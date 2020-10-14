@@ -1,11 +1,34 @@
 <?php
 
 namespace App\Entity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class Message {
+    /**
+     * @Assert\Email(
+     *     message = "L'adresse email {{ value }} n'est pas valide"
+     * )
+     * 
+     * 
+     * @Assert\NotBlank(
+     *  message = "Ce champ est requis"
+     * )
+     */
     protected $from;
     protected $to;
+
+    /**
+     * @Assert\NotBlank(
+     *  message = "Ce champ est requis"
+     * )
+     */
     protected $message;
+
+    /**
+     * @Assert\NotBlank(
+     *  message = "Ce champ est requis"
+     * )
+     */
     protected $subject;
 
     public function getFrom(){
@@ -13,7 +36,7 @@ class Message {
     }
 
     public function setFrom($email){
-        $this->from = $email;
+        $this->from = htmlspecialchars($email);
     }
 
     public function getTo(){
@@ -21,7 +44,7 @@ class Message {
     }
 
     public function setTo($email){
-        $this->to = $email;
+        $this->to = htmlspecialchars($email);
     }
 
     public function getMessage(){
@@ -29,15 +52,22 @@ class Message {
     }
 
     public function setMessage($message){
-        $this->message = $message;
+        $this->message = htmlspecialchars($message);
     }
 
     public function getSubject(){
-        return $this->message;
+        return $this->subject;
     }
 
     public function setSubject($subject){
-        $this->subject = $subject;
+        $this->subject = htmlspecialchars($subject);
+    }
+
+    public function escapeVars(){
+        foreach($this as $prop => $value){
+            $method = "set" . ucfirst($prop);
+            $this->$method($value);
+        }
     }
 
 }

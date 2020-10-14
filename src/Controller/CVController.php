@@ -15,16 +15,18 @@ class CVController extends AbstractController
      */
     public function index()
     {
-        $entityManager = $this->getDoctrine()->getManager();
-        $cv = $this->getDoctrine()
-            ->getRepository(CV::class)
-            ->findAll()[0];
+        //$entityManager = $this->getDoctrine()->getManager();
+        // $cv = $this->getDoctrine()
+        //     ->getRepository(CV::class)
+        //     ->findAll()[0];
         
-
-        $test = [
-            'name' => 'Machin',
-            'desc' => 'Bidule',
-        ];
+        $cv = new CV();
+        $cv->setFirstName("Kévin");
+        $cv->setLastName("Mercier");
+        $cv->setTitle("Développeur PHP");
+        $cv->setSubtitle("En contrat de professionnalisation");
+        $cv->setAddress("1, rue Jean-Marie Ecorchard\nAppartement B12\n35 131 Chartres-de-Bretagne");
+        $cv->setPhone("0768590601");
 
         $cv->addCompetence([
                 "name" => "Travail en équipe, précision, gestion des priorités",
@@ -32,7 +34,7 @@ class CVController extends AbstractController
             ])
         ->addCompetence([
             "name" => "Languages informatiques",
-            "desc" => "PHP, Python, HTML/JS/CSS/SCSS, C/C++"
+            "desc" => "PHP, MySQL, Python, HTML/JS/CSS/SCSS, C/C++"
         ])
         ->addCompetence([
             "name" => "Frameworks, librairies, bibliothèques et autres outils de développement",
@@ -45,7 +47,7 @@ class CVController extends AbstractController
 
         $cv->addExperience([
             "name" => "Juin 2018 - Aujourd'hui : Analyste MET chez ITGA à Rennes (35)",
-            "desc" => "Analyse de prélèvement d'air et de matériaux afin de déterminer la présence d'amiante"
+            "desc" => "Analyse de prélèvements d'air et de matériaux afin de déterminer la présence d'amiante"
 
         ])
         ->addExperience([

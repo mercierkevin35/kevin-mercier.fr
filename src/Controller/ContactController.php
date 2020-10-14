@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use App\Entity\Curl;
 
 
 class ContactController extends AbstractController{
@@ -23,6 +24,8 @@ class ContactController extends AbstractController{
 
     public function index(Request $request){
 
+
+
         $email = new Message();
         $email->setTo($this->getParameter('app.admin_email'));
 
@@ -31,21 +34,28 @@ class ContactController extends AbstractController{
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $email->setMessage(htmlspecialchars($email->getMessage()));
-            $email->setFrom(htmlspecialchars($email->getFrom()));
-            $email->setSubject(htmlspecialchars($email->getSubject()));
-            $headers = 'From: ';
-            $headers .= $email->getFrom() . "\r\n";
-            $headers .= 'Reply-To: ';
-            $headers .= $email->getFrom(). "\r\n";
-            $headers .= 'X-Mailer: PHP/' . phpversion();
-            if(@mail($email->getTo(), $email->getSubject(), $email->getMessage(), $headers)){
-                return $this->render('send_success.html.twig', ['success' => 1]);
-            }else{
-                return $this->render('send_success.html.twig', ['success' => 0]);
+            $token = $request->request->get("g-recaptcha-response");
+            $curl = new Curl("https://www.google.com/recaptcha/api/siteverify");
+            $resp = $curl->sendPostRequest([
+                'secret' => $_ENV['RECAPTCHA_KEY'],
+                'response' => $token,
+                'remoteip' => $_SERVER['REMOTE_ADDR']
+            ]);
+            if($resp->success == true && $resp->score >= 0.5){
+                $email->escapeVars();
+                $headers = 'From: ';
+                $headers .= $email->getTo() . "\r\n";
+                $headers .= 'Reply-To: ';
+                $headers .= $email->getFrom(). "\r\n";
+                $headers .= 'X-Mailer: PHP/' . phpversion();
+                if(mail($email->getTo(), $email->getSubject(), $email->getMessage(), $headers)){
+                    return $this->render('send_success.html.twig', ['success' => 1]);
+                }else{
+                    return $this->render('send_success.html.twig', ['success' => 0]);
+                }
             }
-        }
 
+        }
         return $this->render("contact.html.twig", [
             'form' => $form->createView()
         ]);

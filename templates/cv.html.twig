@@ -9,28 +9,40 @@
 {% endblock %}
 
 {% block body %}
-<div class="container cv-container">
+<div class="container-lg cv-container container-fluid">
     <div class="row">
-        <aside id="presentation" class="col-md-4">
-            <h2>{{ cv.firstName }} {{ cv.lastName }}</h2>
-            <address>
-                {{ cv.address|nl2br }}
-            </address>
-            <div class="tel">
-                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-telephone-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" d="M2.267.98a1.636 1.636 0 0 1 2.448.152l1.681 2.162c.309.396.418.913.296 1.4l-.513 2.053a.636.636 0 0 0 .167.604L8.65 9.654a.636.636 0 0 0 .604.167l2.052-.513a1.636 1.636 0 0 1 1.401.296l2.162 1.681c.777.604.849 1.753.153 2.448l-.97.97c-.693.693-1.73.998-2.697.658a17.47 17.47 0 0 1-6.571-4.144A17.47 17.47 0 0 1 .639 4.646c-.34-.967-.035-2.004.658-2.698l.97-.969z"/>
-                </svg>
+        <aside id="presentation" class="col-lg-3">
+            <div class="address item">
+                <h2>{{ cv.firstName }} {{ cv.lastName }}</h2>
+                <address>
+                    {{ cv.address|nl2br }}
+                </address>
+            </div>
+            <div class="tel item">
+                {{ include("icons/tel.html.twig") }}
                 {{ cv.phone }}
             </div>
-            <a class="email btn btn-outline-primary" id="btn-email" href="{{ path('contact') }}">
-                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-inbox-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" d="M4.98 4a.5.5 0 0 0-.39.188L1.54 8H6a.5.5 0 0 1 .5.5 1.5 1.5 0 1 0 3 0A.5.5 0 0 1 10 8h4.46l-3.05-3.812A.5.5 0 0 0 11.02 4H4.98zm-1.17-.437A1.5 1.5 0 0 1 4.98 3h6.04a1.5 1.5 0 0 1 1.17.563l3.7 4.625a.5.5 0 0 1 .106.374l-.39 3.124A1.5 1.5 0 0 1 14.117 13H1.883a1.5 1.5 0 0 1-1.489-1.314l-.39-3.124a.5.5 0 0 1 .106-.374l3.7-4.625z"/>
-                </svg>
-                M'envoyer un email
-            </a>
+            <div class="email item text-center">
+                <a class="email btn btn-outline-primary" id="btn-email" href="{{ path('contact') }}" target="_blank">
+                    {{ include("icons/email.html.twig") }}
+                    M'envoyer un email
+                </a>
+            </div>
+            <div class="social item d-flex justify-content-center">
+                <div class="p-2">
+                    <a href="https://github.com/mercierkevin35" target="_blank">
+                        {{ include("icons/github.html.twig") }}
+                    </a>
+                </div>
+                <div class="p-2">
+                    <a href="https://www.linkedin.com/in/kevin-mercier-197660100/" target="_blank">
+                        {{ include("icons/linkedin.html.twig") }}
+                    </a>
+                </div>
+            </div>
 
         </aside>
-        <div id="content" class="col-md-8">
+        <div id="content" class="col-lg-9">
             <div class="title-container text-center">
                 <h1 class="main-title">{{ cv.title }}</h1>
                 {% if cv.subtitle is defined and cv.subtitle is not empty %}

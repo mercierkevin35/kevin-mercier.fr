@@ -9,12 +9,7 @@ Contact
 {% endblock %}
 
 {% block body %}
-<div class="container">
-    <h1 class="text-center">Formulaire de contact</h1>
-    <div id="form-container">
-    {{ form(form) }}
-    </div>
-</div>
+{{ include("form.html.twig") }}
 {% endblock %}
 
 {% block javascripts %}

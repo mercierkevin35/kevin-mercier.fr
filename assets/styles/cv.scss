@@ -2,18 +2,23 @@
 
 .title-container {
     
-    @include media-breakpoint-up(md) {
-        margin: 30px auto 100px auto;
+    @include media-breakpoint-up(lg) {
+        margin: 0px auto 100px auto;
     }
-    margin: 30px auto 50px auto;
+    margin: 0px auto 50px auto;
 }
 
 .cv-container {
 
-    @include media-breakpoint-up(md) {
+    background-color: lighten( gray, 45%);
+    padding-top: 30px;
+
+    @include media-breakpoint-up(lg) {
+        
         border: 1px solid black;
         border-radius: 3px;
         box-shadow: 2px 2px 3px;
+        margin: 10px auto;
     }
 
 }
@@ -25,4 +30,20 @@
 .category dd{
     font-style: italic;
     margin-bottom: 20px;
+}
+
+#presentation .item{
+    margin-bottom: 20px;;
+}
+
+.social a{
+    opacity: 0.5;
+    transition: opacity 0.5s;
+    &:hover{
+        opacity: 1;
+    }
+}
+
+#btn-email{
+    transition: background-color 0.5s;
 }
