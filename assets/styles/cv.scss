@@ -15,9 +15,8 @@
 
     @include media-breakpoint-up(lg) {
         
-        border: 1px solid black;
         border-radius: 3px;
-        box-shadow: 2px 2px 3px;
+        box-shadow: 10px 10px 20px;
         margin: 10px auto;
     }
 
