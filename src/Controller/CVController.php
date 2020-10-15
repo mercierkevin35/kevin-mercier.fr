@@ -78,7 +78,7 @@ class CVController extends AbstractController
         ])
         ->addFormation([
             "name" => "2012 - 2014 : Université de Bretagne Sud à Pontivy (56)",
-            "desc" => "D.U.T Génie chimique - génie des procédés (diplôme non obtenu)"
+            "desc" => "I.U.T Génie chimique - génie des procédés (diplôme non obtenu)"
         ])
         ->addFormation([
             "name" => "2012 : Lycée privé de l'Assomption à Rennes (35)",
