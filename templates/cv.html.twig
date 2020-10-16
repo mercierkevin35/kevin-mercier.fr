@@ -55,40 +55,48 @@
             <section id="competences" class="category">
                 <h2 class="cat-title">Compétences</h2>
                 <hr>
+                <dl>
                 {% for competence in cv.competences %}
                     <dt>{{competence.name}}</dt>
                     <dd>{{competence.desc}}</dd>
                 {% endfor %}
+                </dl>
             </section>
             {% endif %}
             {% if cv.experiences is defined and cv.experiences is not empty %}
             <section id="experiences" class="category">
                 <h2 class="cat-title">Expériences</h2>
                 <hr>
+                <dl>
                 {% for experience in cv.experiences %}
                     <dt>{{experience.name}}</dt>
                     <dd>{{experience.desc}}</dd>
                 {% endfor %}
+                </dl>
             </section>
             {% endif %}
             {% if cv.formations is defined and cv.formations is not empty %}
             <section id="formations" class="category">
                 <h2 class="cat-title">Formations</h2>
                 <hr>
+                <dl>
                 {% for formation in cv.formations %}
                     <dt>{{formation.name}}</dt>
                     <dd>{{formation.desc}}</dd>
                 {% endfor %}
+                </dl>
             </section>
             {% endif %}
             {% if cv.hobbies is defined and cv.hobbies is not empty %}
             <section id="hobbies" class="category">
                 <h2 class="cat-title">Centres d'intérêt</h2>
                 <hr>
+                <dl>
                 {% for hobby in cv.hobbies %}
                     <dt>{{hobby.name}}</dt>
                     <dd>{{hobby.desc}}</dd>
                 {% endfor %}
+                </dl>
             </section>
             {% endif %}
         </div>
