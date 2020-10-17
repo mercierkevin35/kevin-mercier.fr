@@ -12,10 +12,21 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+        {% endblock %}
     </head>
     <body>
+        <noscript>
+            <div class="alert alert-danger text-center">
+                Javascript n'est pas activé sur votre navigateur<br>
+                Veuillez l'activer afin de pouvoir utiliser le site convenablement<br>
+                Cliquez <a href="https://www.enablejavascript.io/fr" target="_blank">ici</a> pour plus d'information sur la procédure d'activation de Javascript
+            </div>
+        </noscript>
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+        {% endblock %}
     </body>
 </html>
