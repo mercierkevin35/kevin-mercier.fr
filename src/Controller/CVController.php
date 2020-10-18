@@ -69,7 +69,7 @@ class CVController extends AbstractController
         ])
         ->addExperience([
             "name" => "Avril 2014 - Juin 2014 : Stagiaire technicien d'analyse bactériologiques chez Novescia à Wissous (91)",
-            "desc" => "Préparation des commandes, réception des prélèvements, laverie, stérilisation du matériel"
+            "desc" => "Vérification sur site des méthodes d'un automate d'hémoculture. Ensemencement, lecture et interprétation des résultats."
         ]);
 
         $cv->addFormation([
