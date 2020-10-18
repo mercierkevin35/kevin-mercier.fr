@@ -46,12 +46,12 @@ class CVController extends AbstractController
         ]);
 
         $cv->addExperience([
-            "name" => "Juin 2018 - Aujourd'hui : Analyste MET chez ITGA à Rennes (35)",
+            "name" => "Juillet 2018 - Aujourd'hui : Analyste MET chez ITGA à Rennes (35)",
             "desc" => "Analyse de prélèvements d'air et de matériaux afin de déterminer la présence d'amiante"
 
         ])
         ->addExperience([
-            "name" => "Mai 2017 - Juin 2018 : Technicien de laboratoire chez ITGA à Rennes (35)",
+            "name" => "Mai 2017 - Juillet 2018 : Technicien de laboratoire chez ITGA à Rennes (35)",
             "desc" => "Préparation d'échantillons de matériaux potentiellement amiantés en vue d'une analyse au MET"
 
         ])
