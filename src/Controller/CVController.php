@@ -60,7 +60,7 @@ class CVController extends AbstractController
             "desc" => "Réception des prélèvements, gestion des prélèvements urgents, centrifugation, décantation"
         ])
         ->addExperience([
-            "name" => "Avril 2015 - Juin 2015 : Inventoriste chez RGIS à Rennes",
+            "name" => "Avril 2015 - Juin 2015 : Inventoriste chez RGIS à Rennes (35)",
             "desc" => "Réalisations d'inventaires rapides et précis"
         ])
         ->addExperience([
