@@ -1,4 +1,8 @@
 @import "app.scss";
+body{
+    background-color: lighten( black, 20%);
+}
+
 .title-container {
     
     @include media-breakpoint-up(lg) {
@@ -9,9 +13,9 @@
 
 .cv-container {
 
-    background-color: lighten( gray, 30%);
+    
     padding-top: 30px;
-
+    background-color: white;
     @include media-breakpoint-up(lg) {
         
         border-radius: 3px;
