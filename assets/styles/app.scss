@@ -1,1 +1,36 @@
 @import "~bootstrap/scss/bootstrap";
+
+#cookieModal{
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    bottom:0;
+    width:100%;
+    height:100%;
+    background-color: rgba(0,0,0,0.5);
+    user-select: none;
+    display: none;
+
+}
+#modalContent{
+    position: fixed;
+    margin-top: 50vh;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    padding: 10px 10px;
+    border-radius: 5px;
+    width: 100%;
+    border: 3px solid black;
+    box-shadow: 0px 0px 10px;;
+    
+    @include media-breakpoint-up(lg) {
+        width: 50%;
+    }
+
+}
+
+#btn-modal{
+    display: block;
+    margin: 5px auto 0 auto;
+}

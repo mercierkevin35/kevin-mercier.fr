@@ -12,8 +12,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {{ encore_entry_link_tags('app') }}
         {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
         {% endblock %}
     </head>
     <body>
@@ -24,9 +24,16 @@
                 Cliquez <a href="https://www.enablejavascript.io/fr" target="_blank">ici</a> pour plus d'information sur la procédure d'activation de Javascript
             </div>
         </noscript>
+        <div id="cookieModal" class="text-center">
+            <div id="modalContent">
+                Ce site utilise des cookies afin de mesurer son audience,<br>
+                En continuant sur ce site, vous acceptez l'utilisation de cookies
+                <button id="btn-modal" class="btn btn-primary">Ok</button>
+            </div>
+        </div>
         {% block body %}{% endblock %}
-        {{ encore_entry_script_tags('app') }}
         {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
         {% endblock %}
     </body>
 </html>
