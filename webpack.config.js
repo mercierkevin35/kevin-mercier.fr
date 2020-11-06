@@ -26,6 +26,7 @@ Encore
     .addEntry('app', './assets/app.js')
     .addEntry('cv', './assets/cv.js')
     .addEntry('contact', './assets/contact.js')
+    .addEntry('robofriends','./assets/robofriends/index.js')
     //.addEntry('page1', './assets/page1.js')
     //.addEntry('page2', './assets/page2.js')
 
@@ -69,8 +70,14 @@ Encore
     //.autoProvidejQuery()
 
     // uncomment if you use API Platform Admin (composer req api-admin)
-    //.enableReactPreset()
+    .enableReactPreset()
     //.addEntry('admin', './assets/admin.js')
+
+    .configureBabel(function(babelConfig) {
+
+        // no plugins are added by default, but you can add some
+        babelConfig.plugins.push('@babel/plugin-proposal-class-properties');
+    })
 ;
 
 module.exports = Encore.getWebpackConfig();
