@@ -3,7 +3,7 @@ import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox';
 import Scroll from '../components/Scroll';
 //import {robots} from './robots';
-import './App.css';
+import './App.scss';
 
 class App extends React.Component {
     constructor(){
@@ -33,12 +33,12 @@ class App extends React.Component {
         return !robots.length ?
             <h1>Loading</h1> :
             (
-            <div className='tc'>  
-                <h1 className='f1'>RoboFriends</h1>
-                <SearchBox searchChange={this.onSearchChange} />
-                <Scroll>
-                    <CardList robots={filteredRobots} />
-                </Scroll>
+            <div className='tc'>
+                <header>
+                    <h1 className='f1'>RoboFriends</h1>
+                    <SearchBox searchChange={this.onSearchChange} />
+                </header>  
+                <CardList robots={filteredRobots} />
             </div>
         );
     }
