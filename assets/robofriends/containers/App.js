@@ -37,8 +37,11 @@ class App extends React.Component {
                 <header>
                     <h1 className='f1'>RoboFriends</h1>
                     <SearchBox searchChange={this.onSearchChange} />
-                </header>  
-                <CardList robots={filteredRobots} />
+                </header>
+                <Scroll>
+                    <CardList robots={filteredRobots} />
+                </Scroll>
+                
             </div>
         );
     }
