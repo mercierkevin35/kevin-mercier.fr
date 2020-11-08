@@ -20,11 +20,17 @@ export default function CookieManager(){
             cookies[cookie[0]] = cookie[1];
         }
         
-        return cookies
+        return cookies;
     };
 
     this.deleteCookie = function(key){
         this.setCookie(key, "", -1);
+    }
+
+    this.deleteAllCookies = function () {
+        for (const name in this.getCookies()){
+            this.deleteCookie(name);
+        }
     }
 }
 
