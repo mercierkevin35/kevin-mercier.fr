@@ -94,6 +94,6 @@ class CVController extends AbstractController
             "desc" => ""
         ]);
         //$entityManager->flush();
-        return $this->render("cv.html.twig", ["cv" => $cv]);
+        return $this->render("cv/cv.html.twig", ["cv" => $cv]);
     }
 }

@@ -14,12 +14,4 @@ class HomeController extends AbstractController{
         return $this->redirectToRoute('cv', $request->query->all());
     }
 
-    /**
-     * @Route("/test")
-     */
-
-     public function test(){
-         return $this->render('test.html.twig');
-     }
-
 }

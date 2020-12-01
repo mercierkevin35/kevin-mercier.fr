@@ -49,14 +49,14 @@ class ContactController extends AbstractController{
                 $headers .= $email->getFrom(). "\r\n";
                 $headers .= 'X-Mailer: PHP/' . phpversion();
                 if(mail($email->getTo(), $email->getSubject(), $email->getMessage(), $headers)){
-                    return $this->render('send_success.html.twig', ['success' => 1]);
+                    return $this->render('contact/send_success.html.twig', ['success' => 1]);
                 }else{
-                    return $this->render('send_success.html.twig', ['success' => 0]);
+                    return $this->render('contact/send_success.html.twig', ['success' => 0]);
                 }
             }
 
         }
-        return $this->render("contact.html.twig", [
+        return $this->render("contact/contact.html.twig", [
             'form' => $form->createView()
         ]);
     }
