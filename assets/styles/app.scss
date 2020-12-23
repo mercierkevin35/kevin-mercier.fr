@@ -1,4 +1,35 @@
 @import "~bootstrap/scss/bootstrap";
+// --breakpoint-xs: 0;
+// --breakpoint-sm: 576px;
+// --breakpoint-md: 768px;
+// --breakpoint-lg: 992px;
+// --breakpoint-xl: 1200px;
+
+@media screen and (min-width: 0){
+    body{
+        background: url("../images/bg_small_640.jpg") center/cover no-repeat;
+    }
+    
+}
+
+@include media-breakpoint-up(md) {
+    body{
+        background: url("../images/bg_medium_1280.jpg") center/cover no-repeat;
+    }
+    
+}
+@include media-breakpoint-up(lg) { 
+    body{
+        background: url("../images/bg_large_1920.jpg") center/cover no-repeat;
+    }
+    
+}
+@include media-breakpoint-up(xl) {
+    body{
+        background: url("../images/bg_xlarge_3508.jpg") center/cover no-repeat;
+    } 
+    
+}
 
 #cookieModal{
     position: fixed;
