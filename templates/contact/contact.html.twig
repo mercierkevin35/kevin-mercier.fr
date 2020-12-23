@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+Contact
+{% endblock %}
+
+{% block stylesheets %}
+{{ encore_entry_link_tags('contact') }}
+{% endblock %}
+
+{% block body %}
+{{ include("partials/form.html.twig") }}
+{% endblock %}
+
+{% block javascripts %}
+{{ encore_entry_script_tags('contact') }}
+{% endblock %}

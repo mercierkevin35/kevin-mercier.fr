@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+Confirmation
+{% endblock %}
+
+{% block stylesheets %}
+{{ encore_entry_link_tags('app') }}
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    {% if success == 1 %}
+        <div class="alert alert-success" role="alert">
+        Votre message a été envoyé avec succès !
+        </div>
+    {% else %}
+        <div class="alert alert-danger" role="alert">
+        Il y a eu un problème lors de l'envoi de votre message<br>
+        Cliquez <a href="{{ path('contact') }}">ici</a> pour revenir au formulaire de contact
+        </div>
+{% endif %}
+</div>
+{% endblock %}
+
+{% block javascripts %}
+{{ encore_entry_script_tags('app') }}
+{% endblock %}
