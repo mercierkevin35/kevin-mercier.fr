@@ -1,0 +1,109 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+{{ cv.title }}
+{% endblock %}
+
+{% block stylesheets %}
+{{ encore_entry_link_tags('cv') }}
+{% endblock %}
+
+{% block body %}
+<div class="container-lg cv-container container-fluid">
+    <div class="row">
+        <aside id="presentation" class="col-lg-3">
+            <div class="address item">
+                <h2>{{ cv.firstName }} {{ cv.lastName }}</h2>
+                <address>
+                    {{ cv.address|nl2br }}
+                </address>
+            </div>
+            <div class="tel item">
+                {{ include("icons/tel.html.twig") }}
+                {{ cv.phone }}
+            </div>
+            <div class="email item text-center">
+                <a class="email btn btn-outline-primary" id="btn-email" href="{{ path('contact') }}" target="_blank">
+                    {{ include("icons/email.html.twig") }}
+                    M'envoyer un email
+                </a>
+            </div>
+            <div class="social item d-flex justify-content-center">
+                <div class="p-2">
+                    <a href="https://github.com/mercierkevin35" target="_blank">
+                        {{ include("icons/github.html.twig") }}
+                    </a>
+                </div>
+                <div class="p-2">
+                    <a href="https://www.linkedin.com/in/kevin-mercier-197660100/" target="_blank">
+                        {{ include("icons/linkedin.html.twig") }}
+                    </a>
+                </div>
+            </div>
+
+        </aside>
+        <div id="content" class="col-lg-9">
+            <div class="title-container text-center">
+                <h1 class="main-title">{{ cv.title }}</h1>
+                {% if cv.subtitle is defined and cv.subtitle is not empty %}
+                    <h2 class="subtitle">{{ cv.subtitle }}</h2>
+                {% endif %}
+            </div>
+
+            
+            {% if cv.competences is defined and cv.competences is not empty %}
+            <section id="competences" class="category">
+                <h2 class="cat-title">Compétences</h2>
+                <hr>
+                <dl>
+                {% for competence in cv.competences %}
+                    <dt>{{competence.name}}</dt>
+                    <dd>{{competence.desc}}</dd>
+                {% endfor %}
+                </dl>
+            </section>
+            {% endif %}
+            {% if cv.experiences is defined and cv.experiences is not empty %}
+            <section id="experiences" class="category">
+                <h2 class="cat-title">Expériences</h2>
+                <hr>
+                <dl>
+                {% for experience in cv.experiences %}
+                    <dt>{{experience.name}}</dt>
+                    <dd>{{experience.desc}}</dd>
+                {% endfor %}
+                </dl>
+            </section>
+            {% endif %}
+            {% if cv.formations is defined and cv.formations is not empty %}
+            <section id="formations" class="category">
+                <h2 class="cat-title">Formations</h2>
+                <hr>
+                <dl>
+                {% for formation in cv.formations %}
+                    <dt>{{formation.name}}</dt>
+                    <dd>{{formation.desc}}</dd>
+                {% endfor %}
+                </dl>
+            </section>
+            {% endif %}
+            {% if cv.hobbies is defined and cv.hobbies is not empty %}
+            <section id="hobbies" class="category">
+                <h2 class="cat-title">Centres d'intérêt</h2>
+                <hr>
+                <dl>
+                {% for hobby in cv.hobbies %}
+                    <dt>{{hobby.name}}</dt>
+                    <dd>{{hobby.desc}}</dd>
+                {% endfor %}
+                </dl>
+            </section>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+{{ encore_entry_script_tags('cv') }}
+{% endblock %}
